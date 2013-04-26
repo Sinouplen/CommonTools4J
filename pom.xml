@@ -4,7 +4,7 @@
 
 	<groupId>org.sinouplen.common.tools</groupId>
 	<artifactId>CommonTools4J</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>CommonTools4J</name>
@@ -23,12 +23,19 @@
 
 	<profiles>
 		<profile>
+			<id>deploy-release</id>
+			<properties>
+				<altDeploymentRepository>sinouplen-releases-repository::default::file:../mvn-repo/releases</altDeploymentRepository>
+			</properties>
+		</profile>
+		<profile>
 			<id>deploy-snapshot</id>
 			<properties>
-				<altDeploymentRepository>snapshot-repo::default::file:snapshots</altDeploymentRepository>
+				<altDeploymentRepository>sinouplen-snapshots-repository::default::file:../mvn-repo/snapshots</altDeploymentRepository>
 			</properties>
 		</profile>
 	</profiles>
+
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

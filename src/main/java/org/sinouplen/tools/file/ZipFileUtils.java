@@ -188,21 +188,23 @@ public final class ZipFileUtils {
 				}
 			}
 		} finally {
-			if (zipOutPutStream != null) {
-				try {
-					zipOutPutStream.close();
-				} catch (IOException e) {
-					LOGGER.error(
-							"Impossible to close this zip output stream : "
-									+ destinationZipFileLock.getAbsolutePath(),
-							e);
-					throw e;
+			try {
+				if (zipOutPutStream != null) {
+					try {
+						zipOutPutStream.close();
+					} catch (IOException e) {
+						LOGGER.error(
+								"Impossible to close this zip output stream : "
+										+ destinationZipFileLock
+												.getAbsolutePath(), e);
+						throw e;
+					}
+				}
+			} finally {
+				if (destinationZipFile.exists()) {
+					FileUtils.forceDelete(destinationZipFile);
 				}
 			}
-		}
-
-		if (destinationZipFile.exists()) {
-			FileUtils.forceDelete(destinationZipFile);
 		}
 
 		FileUtils.moveFile(destinationZipFileLock, destinationZipFile);
