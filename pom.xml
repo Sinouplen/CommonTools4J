@@ -11,19 +11,19 @@
 	<url>https://sinouplen.onveracity.com/repos/CommonTools4J</url>
 
 	<scm>
-		<url>https://github.com/Sinouplen/CommonTools.git</url>
-		<connection>scm:git:git://git@github.com:Sinouplen/CommonTools.git</connection>
-		<developerConnection>scm:git:https://github.com/Sinouplen/CommonTools.git</developerConnection>
+		<url>https://github.com/Sinouplen/CommonTools4J.git</url>
+		<connection>scm:git:git://git@github.com:Sinouplen/CommonTools4J.git</connection>
+		<developerConnection>scm:git:https://github.com/Sinouplen/CommonTools4J.git</developerConnection>
 	</scm>
 
 	<distributionManagement>
 		<repository>
 			<id>sinouplen-releases-repository</id>
-			<url>https://github.com/Sinouplen/maven-repository/raw/master/releases</url>
+			<url>https://github.com/Sinouplen/mvn-repo/raw/master/releases</url>
 		</repository>
 		<snapshotRepository>
-			<id>sinouplen-snapshotss-repository</id>
-			<url>https://github.com/Sinouplen/maven-repository/raw/master/snapshots</url>
+			<id>sinouplen-snapshots-repository</id>
+			<url>https://github.com/Sinouplen/mvn-repo/raw/master/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -125,6 +125,11 @@
 					<target>1.6</target>
 					<compilerVersion>1.6</compilerVersion>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.2</version>
 			</plugin>
 		</plugins>
 	</build>
