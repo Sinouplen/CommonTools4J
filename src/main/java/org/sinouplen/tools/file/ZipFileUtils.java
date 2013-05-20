@@ -20,9 +20,9 @@ import org.apache.log4j.Logger;
  */
 public final class ZipFileUtils {
 
-	private final static Logger LOGGER = Logger.getLogger(ZipFileUtils.class);
+	private static final Logger LOGGER = Logger.getLogger(ZipFileUtils.class);
 
-	private final static String ERROR_MESSAGE_SRC_ZIP_FILE_DOESNT_EXISTS = "The source zip file doesn't exists";
+	private static final String ERROR_MESSAGE_SRC_ZIP_FILE_DOESNT_EXISTS = "The source zip file doesn't exists";
 
 	/**
 	 * Hide Utility Class Constructor
@@ -31,6 +31,12 @@ public final class ZipFileUtils {
 
 	}
 
+	/**
+	 * @param srcZipfile
+	 * @param destinationDir
+	 * @throws ZipException
+	 * @throws IOException
+	 */
 	public static void extract(File srcZipfile, File destinationDir)
 			throws ZipException, IOException {
 
@@ -81,6 +87,11 @@ public final class ZipFileUtils {
 		}
 	}
 
+	/**
+	 * @param src
+	 * @param destinationZipFile
+	 * @throws IOException
+	 */
 	public static void compress(File src, File destinationZipFile)
 			throws IOException {
 
@@ -92,6 +103,11 @@ public final class ZipFileUtils {
 
 	}
 
+	/**
+	 * @param srcDir
+	 * @param destinationZipFile
+	 * @throws IOException
+	 */
 	public static void compressDirectory(File srcDir, File destinationZipFile)
 			throws IOException {
 
@@ -111,6 +127,11 @@ public final class ZipFileUtils {
 		compressAllFiles(srcDir.listFiles(), destinationZipFile);
 	}
 
+	/**
+	 * @param srcFile
+	 * @param destinationZipFile
+	 * @throws IOException
+	 */
 	public static void compressFile(File srcFile, File destinationZipFile)
 			throws IOException {
 

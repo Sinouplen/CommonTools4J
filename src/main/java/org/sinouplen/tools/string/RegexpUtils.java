@@ -9,7 +9,7 @@ package org.sinouplen.tools.string;
  */
 public final class RegexpUtils {
 
-	private static String PATTERNE_NUMBERS = "^[0-9]+$";
+	private static final String PATTERNE_NUMBERS = "^[0-9]+$";
 
 	private RegexpUtils() {
 

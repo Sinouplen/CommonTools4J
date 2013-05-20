@@ -1,6 +1,7 @@
 analyseLocally=false
 eclipse.preferences.version=1
-extraProperties=
+extraProperties=sonar.host.url\=http\://192.168.1.254\:9000\r\nsonar.jdbc.driver\=org.mysql.Driver\r\nsonar.jdbc.password\=sonar\r\nsonar.jdbc.username\=sonar\r\nsonar.jdbc.url\=jdbc\:mysql\://192.168.1.254\:3306/sonar?useUnicode
+lastAnalysisDate=1369088079000
 projectKey=org.sinouplen.common.tools\:CommonTools4J
-serverUrl=http\://localhost\:9000
+serverUrl=http\://192.168.1.254\:9000
 version=2

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import org.apache.commons.io.Charsets;
 import org.apache.log4j.Logger;
 import org.sinouplen.tools.logger.LoggerLevel;
 
@@ -20,15 +21,28 @@ public class ShowInputStream implements Runnable {
 	private final InputStream inputStream;
 	private final LoggerLevel level;
 
+	/**
+	 * @param inputStream
+	 * @param level
+	 */
 	public ShowInputStream(InputStream inputStream, LoggerLevel level) {
 		this.inputStream = inputStream;
 		this.level = level;
 	}
 
+	/**
+	 * @param is
+	 * @return
+	 */
 	private BufferedReader getBufferedReader(InputStream is) {
-		return new BufferedReader(new InputStreamReader(is));
+		return new BufferedReader(new InputStreamReader(is, Charsets.UTF_8));
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Runnable#run()
+	 */
 	public void run() {
 		BufferedReader br = getBufferedReader(inputStream);
 		String ligne = "";

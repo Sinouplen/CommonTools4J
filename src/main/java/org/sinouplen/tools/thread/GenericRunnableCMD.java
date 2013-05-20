@@ -5,6 +5,7 @@ package org.sinouplen.tools.thread;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 import org.apache.log4j.Logger;
 import org.sinouplen.tools.logger.LoggerLevel;
@@ -17,7 +18,7 @@ import org.sinouplen.tools.thread.exception.GenericRunnableCMDException;
  */
 public class GenericRunnableCMD implements Runnable {
 
-	private final static Logger LOGGER = Logger
+	private static final Logger LOGGER = Logger
 			.getLogger(GenericRunnableCMD.class);
 
 	private String command;
@@ -33,7 +34,7 @@ public class GenericRunnableCMD implements Runnable {
 	public GenericRunnableCMD(String command, String[] environnementParameters,
 			File executeDirectory) throws GenericRunnableCMDException {
 		this.command = command;
-		this.environnementParameters = environnementParameters;
+		this.environnementParameters = environnementParameters.clone();
 		this.executeDirectory = executeDirectory;
 
 		if (this.command == null || this.command.isEmpty()) {
@@ -62,7 +63,7 @@ public class GenericRunnableCMD implements Runnable {
 			if (this.environnementParameters != null
 					&& this.environnementParameters.length > 0) {
 				preparedCommandeMessage = "with this environnement variable "
-						+ this.environnementParameters;
+						+ Arrays.toString(this.environnementParameters);
 			}
 			try {
 				LOGGER.debug("Executing commande ligne "

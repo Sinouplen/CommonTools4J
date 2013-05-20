@@ -19,7 +19,11 @@ import com.sun.media.jai.codec.SeekableStream;
  * @author Sinouplen
  * 
  */
-public class ImageUtils {
+public final class ImageUtils {
+
+	private ImageUtils() {
+
+	}
 
 	public static BufferedImage read(File file) throws IOException {
 		BufferedImage bufferedImage = null;
@@ -29,13 +33,10 @@ public class ImageUtils {
 			bufferedImage = ImageIO.read(ImageIO
 					.createImageInputStream(new FileInputStream(file)));
 		} catch (CMMException ex) {
-			// inputStream.reset();
 			ex.getCause();
 		}
 
 		if (bufferedImage == null) {
-			// inputStream.reset();
-
 			RenderedOp renderedOp = JAI.create("stream", SeekableStream
 					.wrapInputStream(new FileInputStream(file), true));
 
