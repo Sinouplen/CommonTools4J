@@ -61,6 +61,8 @@ public class ShowInputStream implements Runnable {
 					LOGGER.trace(ligne);
 				case WARN:
 					LOGGER.warn(ligne);
+				default:
+					LOGGER.error(this.level + " | " + ligne);
 				}
 			}
 		} catch (IOException e) {
